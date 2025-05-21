@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: mona;
+  src: url("./assets/Mona-Sans.var.37e1d48f.woff2");
+}
+* {
+  font-family: mona;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
