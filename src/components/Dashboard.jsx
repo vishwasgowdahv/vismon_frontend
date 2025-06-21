@@ -78,7 +78,7 @@ export default function Dashboard() {
       <h1 className="text-center mx-[10px] my-[10px] p-[10px] sm:text-3xl font font-semiBold rounded-xl">
         You worked For{" "}
         <span className="rounded-4xl border bg-[#E7C22A] px-3 py-0.5">
-          {(tempiHour / 24).toFixed(1)}
+          {(tempiHour / 8).toFixed(1)}
         </span>{" "}
         Days this Year
       </h1>
