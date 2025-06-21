@@ -1,12 +1,18 @@
-# React + Vite
+# Vismon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Logo](https://raw.githubusercontent.com/vishwasgowdahv/vismon_frontend/refs/heads/main/src/assets/vismon.png)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vismon is a Webapp that tracks the worked days that user worked for any company and give overview of all the factors.
 
-## Expanding the ESLint configuration
+    -> Used MongoDB Atlas as Database and Mongoose to build Schemas and Connection.
+    -> Express Js is used as Server and server backend is deployed in Render.
+    -> Frontend and UI built with React, TailwindCSS and React-Router-Dom for Routing 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## Features
+
+- users can add, read, update and delete the works.
+- users get overview of all their works till date.
+- Total working days is calculated by calculating their work shifts.
