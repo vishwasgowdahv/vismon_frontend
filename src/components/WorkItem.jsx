@@ -40,7 +40,7 @@ export default function WorkItem(props) {
 //   });
 
   return (
-    <li className=" px-3 py-1 sm:py-2">
+    <li className=" px-3 py-1 sm:py-1">
       <div className="flex items-center">
         <div className="flex-1">
           <p className="text-lg font-semibold text-black truncate ">

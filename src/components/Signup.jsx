@@ -9,6 +9,7 @@ export default function Signup() {
     email: "",
     password: "",
   });
+  const [togglePass, setTogglePass] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -123,16 +124,19 @@ export default function Signup() {
                 </label>
               </div>
               <div className="mt-2">
-                <input
+                <div className="flex">
+                  <input
                   value={userInfo.password}
                   onChange={handleOnChange}
                   id="password"
                   name="password"
-                  type="password"
+                  type={togglePass ? "password" : "text"}
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                <img className="mx-[5px] h-[35px] w-[35px] border border-gray-300 rounded-md " src="src/assets/eye.png" onClick={()=>{setTogglePass(!togglePass)}}/>
+                </div>
               </div>
             </div>
 

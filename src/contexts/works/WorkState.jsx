@@ -2,6 +2,8 @@ import WorkContext from "./workContext";
 import { useState } from "react";
 export default function WorkState(props) {
   const [fetchedWorks, setFetchedWorks] = useState([]);
+  const [userData, setUserData] = useState([]);
+
   const baseUrl = "https://vismon-backend.onrender.com";
   //   const baseUrl = "https://7957-195-12-232-246.ngrok-free.app";
   //   const baseUrl = "http://localhost:3000";
@@ -18,7 +20,7 @@ export default function WorkState(props) {
     });
     const jsonres = await apires.json();
     setFetchedWorks(jsonres.works);
-  };
+  }; 
 
   ////////  fetch single work
 
@@ -128,6 +130,40 @@ export default function WorkState(props) {
     }
   };
 
+
+
+
+
+
+
+
+
+
+
+  ///*******    fetch user      ***** */
+
+  const fetchUsers = async () => {
+    const apires = await fetch(`${baseUrl}/v1/api/auth/fetchuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authtoken: localStorage.getItem("authtoken"),
+        "ngrok-skip-browser-warning": "69420",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    const jsonres = await apires.json();
+    setUserData(jsonres.user);
+  }; 
+
+
+
+
+
+
+
+
+
   return (
     <WorkContext.Provider
       value={{
@@ -138,6 +174,8 @@ export default function WorkState(props) {
         workInfo,
         addWork,
         deleteWork,
+        fetchUsers,
+        userData
       }}
     >
       {props.children}

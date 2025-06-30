@@ -1,15 +1,15 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-    const baseUrl='https://vismon-backend.onrender.com'
-//   const baseUrl = "https://7957-195-12-232-246.ngrok-free.app";
+  const baseUrl = "https://vismon-backend.onrender.com";
+  //   const baseUrl = "https://7957-195-12-232-246.ngrok-free.app";
   //   const baseUrl = "http://localhost:3000";
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
-
+  const [togglePass, setTogglePass] = useState(true);
   useEffect(() => {
     if (localStorage.getItem("authtoken")) {
       navigate("/dashboard");
@@ -25,7 +25,7 @@ export default function Login() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":"*",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         email: userInfo.email,
@@ -95,16 +95,20 @@ export default function Login() {
                 </div>
               </div>
               <div className="mt-2">
+                <div className="flex">
                 <input
                   value={userInfo.password}
                   onChange={handleOnChange}
                   id="password"
                   name="password"
-                  type="password"
+                  type={togglePass ? "password" : "text"}
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                <img className="mx-[5px] h-[35px] w-[35px] border border-gray-300 rounded-md " src="src/assets/eye.png" onClick={()=>{setTogglePass(!togglePass)}}/>
+                </div>
+                
               </div>
             </div>
 
