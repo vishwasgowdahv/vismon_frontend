@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import eye from '/assets/eye.png';
 
 export default function Signup() {
     const baseUrl='https://vismon-backend.onrender.com'
@@ -135,7 +136,7 @@ export default function Signup() {
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
-                <img className="mx-[5px] h-[35px] w-[35px] border border-gray-300 rounded-md " src="src/assets/eye.png" onClick={()=>{setTogglePass(!togglePass)}}/>
+                <img className="mx-[5px] h-[35px] w-[35px] border border-gray-300 rounded-md " src={eye} onClick={()=>{setTogglePass(!togglePass)}}/>
                 </div>
               </div>
             </div>

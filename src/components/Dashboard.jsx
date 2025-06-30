@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import workContext from "../contexts/works/workContext";
 import AddWork from "./AddWork";
 import Loading from "./Loading";
-// import profileimg from "../assets/profile.jpg";
+import profilelogo from "/assets/profile.jpg";
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -80,7 +80,7 @@ export default function Dashboard() {
             >
               <img
                 className="w-[40px] h-[40px]"
-                src="src/assets/profile.jpg"
+                src={profilelogo}
                 alt=""
               />
             </button>
