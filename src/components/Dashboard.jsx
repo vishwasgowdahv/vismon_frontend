@@ -9,11 +9,12 @@ import profilelogo from "/assets/profile.jpg";
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const context = useContext(workContext);
-  const { fetchedWorks, fetchallworks, userData,fetchUsers } = context;
+  const { fetchedWorks, fetchallworks, userData, fetchUsers } = context;
   const navigate = useNavigate();
   const [totalHours, setTotalHours] = useState(0);
   const [toggleMenu, setToggleMenu] = useState(false);
   let tempiHour = 0;
+  let tempiDays = 0;
   let totalEarnings = 0;
 
   const [closeAddWorkModal, setCloseAddWorkModal] = useState(false);
@@ -41,7 +42,9 @@ export default function Dashboard() {
       workedHour = Number(minutes / 60);
     }
     tempiHour += workedHour;
-    totalEarnings += work.wagePerHour * workedHour;
+    workedHour > 4 ? (tempiDays += 1) : (tempiDays += 0.5);
+    totalEarnings +=
+      work.wagePerHour * workedHour - (work.breakTaken / 60) * work.wagePerHour;
   });
   useEffect(() => {
     if (!localStorage.getItem("authtoken")) {
@@ -78,15 +81,9 @@ export default function Dashboard() {
               aria-expanded="true"
               aria-haspopup="true"
             >
-              <img
-                className="w-[40px] h-[40px]"
-                src={profilelogo}
-                alt=""
-              />
+              <img className="w-[40px] h-[40px]" src={profilelogo} alt="" />
             </button>
           </div>
-
-      
 
           <div
             id="menuContents"
@@ -131,7 +128,8 @@ export default function Dashboard() {
       <h1 className="text-center mx-[10px] my-[10px] p-[10px] sm:text-3xl font font-semiBold rounded-xl">
         You worked For{" "}
         <span className="rounded-4xl border bg-[#E7C22A] px-3 py-0.5">
-          {(tempiHour / 8).toFixed(1)}
+          {/* {(tempiHour / 8).toFixed(1)} */}
+          {tempiDays}
         </span>{" "}
         Days this Year.
       </h1>
@@ -152,10 +150,13 @@ export default function Dashboard() {
         <div className="sticky top-0 px-[30px] py-[25px] bg-white flex items-center justify-between mb-4 sm:py-[15px] sm:pt-[35px] sm:px-[50px]">
           <h5 className="text-2xl font-bold leading-none text-gray-900 ">
             Your Activity
-          </h5 >
-          <h3 className="font-semibold text-xl sm:text-3xl"><span className="rounded-4xl border bg-[#80E142] px-3 py-0.5"> &#8364; {" "}
-          {totalEarnings.toFixed(1)}
-        </span></h3>
+          </h5>
+          <h3 className="font-semibold text-xl sm:text-3xl">
+            <span className="rounded-4xl border bg-[#80E142] px-3 py-0.5">
+              {" "}
+              &#8364; {totalEarnings.toFixed(1)}
+            </span>
+          </h3>
         </div>
         <div className="flow-root m-4 sm:mx-8 sm:my-1  ">
           <ul role="list" className="divide-y divide-gray-200 ">
@@ -214,6 +215,8 @@ export default function Dashboard() {
                         endTime={work.endTime}
                         wagePerHour={work.wagePerHour}
                         breakTaken={work.breakTaken}
+                        tookVehicleToGo={work.tookVehicleToGo}
+                        tookVehicleToComeBack={work.tookVehicleToComeBack}
                       />
                     </Link>
                   </div>
