@@ -61,7 +61,7 @@ export default function Dashboard() {
   };
   return (
     <div className="m-[20px]">
-      <div className="flex justify-between mx-2 my-9 sm:m-8 ">
+      {/* <div className="flex justify-between mx-2 my-9 sm:m-8 ">
         <button
           onClick={handleCloseAddWorkModal}
           className="cursor-pointer border p-1.5 sm:p-3 font-semiBold rounded-lg"
@@ -116,11 +116,11 @@ export default function Dashboard() {
               >
                 Logout &#10132;
                 {/* &#9999; */}
-              </button>
+              {/* </button>
             </div>
           </div>
         </div>
-      </div>
+      </div> */} 
       <h1 className="text-center m-[10px] sm:m-[30px] p-[10px] font-semiBold text-xl sm:text-5xl font font-semiBold rounded-xl">
         Overview of your Works Here
       </h1>
@@ -147,16 +147,25 @@ export default function Dashboard() {
       </div>
 
       <div className="mt-10 h-[70vh] no-scrollbar overflow-y-scroll w-full max-w-full bg-white border border-gray-300 rounded-lg shadow-sm  ">
-        <div className="sticky top-0 px-[30px] py-[25px] bg-white flex items-center justify-between mb-4 sm:py-[15px] sm:pt-[35px] sm:px-[50px]">
-          <h5 className="text-2xl font-bold leading-none text-gray-900 ">
-            Your Activity
+        <div className="sticky top-0 px-[30px] pt-[25px] pb-[10px] bg-white flex items-center justify-between mb-4 sm:py-[15px] sm:pt-[35px] sm:px-[50px]">
+          
+          <div className="sm:flex-row flex flex-col gap-3 justify-between items-center box-border">
+            <h5 className="sm:text-2xl text-sm font-bold leading-none text-gray-900 ">
+            Total Earnings
           </h5>
-          <h3 className="font-semibold text-xl sm:text-3xl">
+          <h3 className="font-semibold text-sm sm:text-3xl">
             <span className="rounded-4xl border bg-[#80E142] px-3 py-0.5">
               {" "}
               &#8364; {totalEarnings.toFixed(1)}
             </span>
           </h3>
+          </div>
+          <button
+            onClick={handleCloseAddWorkModal}
+            className="cursor-pointer border text-lg p-2 sm:p-3 font-bold rounded-lg"
+          >
+            ADD +
+          </button>
         </div>
         <div className="flow-root m-4 sm:mx-8 sm:my-1  ">
           <ul role="list" className="divide-y divide-gray-200 ">

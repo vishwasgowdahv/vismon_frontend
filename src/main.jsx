@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import WorkInfo from "./components/WorkInfo";
 import WorkState from "./contexts/works/WorkState.jsx";
+import MonthsOverview from "./components/MonthsOverview.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="dashboard" element={<Dashboard />} />
+      <Route path="lists" element={<MonthsOverview />} />
       <Route path="/work/:id" element={<WorkInfo />} />
     </Route>
   )
